@@ -93,26 +93,41 @@ nyc-taxi-data-engineering/
 └── README.md
 ```
 
+
 ## Pipeline Execution
 
 The main pipeline orchestrator is `run_pipeline.py`.
 
-To run locally after installing the dependencies and configuring Google Cloud credentials:
+### Install Dependencies
+
+To install the required Python packages, run:
 
 ```bash
 python -m pip install -r requirements.txt
+```
+
+### Run the Pipeline
+
+After configuring Google Cloud credentials, execute:
+
+```bash
 python run_pipeline.py
 ```
 
-To build the Docker image:
+### Build the Docker Image
+
+To build the Docker image, run:
 
 ```bash
 docker build -t nyc-taxi-pipeline:3.0 .
 ```
 
+### Google Cloud Configuration
+
 Running the full pipeline requires Google Cloud Application Default Credentials with appropriate permissions and access to the configured project resources.
 
 **Important:** The current pipeline uses a fixed January 2021 dataset and overwrites its existing processed Cloud Storage object and BigQuery destination table on each successful load.
+
 
 ## Scheduling and Monitoring
 
